@@ -1,4 +1,4 @@
-package entity;
+package tojoniaina.hei.td3.entity;
 
 import java.util.Objects;
 
@@ -7,9 +7,6 @@ public class StudentEntity {
     private String firstname;
     private String lastname;
     private Integer age;
-
-    public StudentEntity() {
-    }
 
     public StudentEntity(String reference, String firstname, String lastname, Integer age) {
         this.reference = reference;
@@ -53,13 +50,14 @@ public class StudentEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof StudentEntity that)) return false;
-        return Objects.equals(getReference(), that.getReference()) && Objects.equals(getFirstname(), that.getFirstname()) && Objects.equals(getLastname(), that.getLastname()) && Objects.equals(getAge(), that.getAge());
+        if (o == null || getClass() != o.getClass()) return false;
+        StudentEntity that = (StudentEntity) o;
+        return Objects.equals(reference, that.reference) && Objects.equals(firstname, that.firstname) && Objects.equals(lastname, that.lastname) && Objects.equals(age, that.age);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getReference(), getFirstname(), getLastname(), getAge());
+        return Objects.hash(reference, firstname, lastname, age);
     }
 
     @Override
